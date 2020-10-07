@@ -34,7 +34,8 @@ Auth::routes();
 Route::get('/login', 'HomeController@login')->name('user.login');
 Route::get('/logout', 'Auth\LogoutController@index')->name('user.logout');
 
-Route::resource('words', 'WordController');
+Route::resource('words', 'WordController', [
+    'only' => ['index', 'show', 'update'],
 
 Route::get('/admin', function () {
     return view('admin.index');
